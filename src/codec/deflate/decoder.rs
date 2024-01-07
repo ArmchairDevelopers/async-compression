@@ -3,7 +3,7 @@ use std::io::Result;
 
 #[derive(Debug)]
 pub struct DeflateDecoder {
-    inner: crate::codec::FlateDecoder,
+    pub inner: crate::codec::FlateDecoder,
 }
 
 impl DeflateDecoder {
