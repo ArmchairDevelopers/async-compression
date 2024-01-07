@@ -55,6 +55,10 @@ impl<W: AsyncWrite, D: Decode> Decoder<W, D> {
         self.writer.into_inner()
     }
 
+    pub fn decoder_mut(&self) -> &mut D {
+        &mut self.decoder
+    }
+
     fn do_poll_write(
         self: Pin<&mut Self>,
         cx: &mut Context<'_>,

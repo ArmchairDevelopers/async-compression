@@ -23,6 +23,10 @@ macro_rules! decoder {
 
             $($($inherent_methods)*)*
 
+            pub fn inner_mut(&mut self) -> &mut crate::tokio::write::Decoder<$inner, crate::codec::$name> {
+                &mut self.inner
+            }
+
             /// Acquires a reference to the underlying reader that this decoder is wrapping.
             pub fn get_ref(&self) -> &$inner {
                 self.inner.get_ref()
