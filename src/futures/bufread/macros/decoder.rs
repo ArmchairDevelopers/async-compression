@@ -23,6 +23,10 @@ macro_rules! decoder {
 
             $($($inherent_methods)*)*
 
+            pub fn inner_mut(&mut self) -> &mut crate::futures::bufread::Decoder<$inner, crate::codec::$name> {
+                &mut self.inner
+            }
+
             /// Configure multi-member/frame decoding, if enabled this will reset the decoder state
             /// when reaching the end of a compressed member/frame and expect either EOF or another
             /// compressed member/frame to follow it in the stream.

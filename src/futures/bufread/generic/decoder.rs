@@ -58,6 +58,10 @@ impl<R: AsyncBufRead, D: Decode> Decoder<R, D> {
         self.multiple_members = enabled;
     }
 
+    pub fn decoder_mut(&self) -> &mut D {
+        &mut self.decoder
+    }
+
     fn do_poll_read(
         self: Pin<&mut Self>,
         cx: &mut Context<'_>,
