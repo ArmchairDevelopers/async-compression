@@ -58,7 +58,7 @@ impl<R: AsyncBufRead, D: Decode> Decoder<R, D> {
         self.multiple_members = enabled;
     }
 
-    pub fn decoder_mut(&self) -> &mut D {
+    pub fn decoder_mut(&mut self) -> &mut D {
         &mut self.decoder
     }
 
